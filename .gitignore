@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+
+# Dataset
+food-101/
+*.zip
+
+# Models (optional)
+*.h5
+
+# OS files
+.DS_Store
+Thumbs.db

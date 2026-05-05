@@ -1,0 +1,134 @@
+{
+  "waffles": {
+    "calories": 273,
+    "protein": 6.6,
+    "carbs": 41.0,
+    "fat": 9.2,
+    "fiber": 2.2,
+    "sodium": 621,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Waffles, buttermilk, frozen, ready-to-heat"
+  },
+  "ramen": {
+    "calories": 1840.0,
+    "protein": 10.2,
+    "carbs": 60.3,
+    "fat": 17.6,
+    "fiber": 2.9,
+    "sodium": 1860.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Soup, ramen noodle, any flavor, dry"
+  },
+  "grilled salmon": {
+    "calories": 902,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 100,
+    "fiber": 0.0,
+    "sodium": 0.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Fish oil, salmon"
+  },
+  "frozen yogurt": {
+    "calories": 547,
+    "protein": 3.0,
+    "carbs": 21.6,
+    "fat": 3.6,
+    "fiber": 2.3,
+    "sodium": 63.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Frozen yogurts, chocolate"
+  },
+  "chocolate mousse": {
+    "calories": 225,
+    "protein": 4.1,
+    "carbs": 16.1,
+    "fat": 16.0,
+    "fiber": 0.6,
+    "sodium": 38.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Desserts, mousse, chocolate, prepared-from-recipe"
+  },
+  "apple pie": {
+    "calories": 420,
+    "protein": 0.1,
+    "carbs": 26.1,
+    "fat": 0.1,
+    "fiber": 1.0,
+    "sodium": 47.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Pie fillings, apple, canned"
+  },
+  "butter chicken": {
+    "calories": 900,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 100,
+    "fiber": 0.0,
+    "sodium": 0.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Butter, Clarified butter (ghee)"
+  },
+  "french fries": {
+    "calories": 1210.0,
+    "protein": 3.3,
+    "carbs": 39.5,
+    "fat": 13.2,
+    "fiber": 3.9,
+    "sodium": 618,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "APPLEBEE'S, french fries"
+  },
+  "dumplings": {
+    "calories": 101,
+    "protein": 8.7,
+    "carbs": 8.0,
+    "fat": 3.8,
+    "fiber": 0,
+    "sodium": 46.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Stew, dumpling with mutton (Navajo)"
+  },
+  "fish and chips": {
+    "calories": 1160.0,
+    "protein": 11.0,
+    "carbs": 21.7,
+    "fat": 16.2,
+    "fiber": 1.5,
+    "sodium": 402,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Fish, fish sticks, frozen, prepared"
+  },
+  "caprese salad": {
+    "calories": 187,
+    "protein": 16.0,
+    "carbs": 9.4,
+    "fat": 9.3,
+    "fiber": 0.0,
+    "sodium": 402,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Fish, tuna salad"
+  },
+  "greek salad": {
+    "calories": 187,
+    "protein": 16.0,
+    "carbs": 9.4,
+    "fat": 9.3,
+    "fiber": 0.0,
+    "sodium": 402,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Fish, tuna salad"
+  }
+}
