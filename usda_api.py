@@ -1,13 +1,8 @@
-# usda_api.py
-# Fetches real nutritional data from USDA FoodData Central API
 
 import requests
 import json
 import os
 
-# ISSUE 1 FIX: never hardcode API key — set it as environment variable
-# Run: export USDA_API_KEY="nlJizxGoqBWA6ewe6e12eLwGxnFGTq27CkukRbi2"
-# Or create a .env file and use python-dotenv
 API_KEY  = os.getenv("USDA_API_KEY", "nlJizxGoqBWA6ewe6e12eLwGxnFGTq27CkukRbi2")
 BASE_URL = "https://api.nal.usda.gov/fdc/v1"
 
