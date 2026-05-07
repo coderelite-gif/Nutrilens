@@ -6,7 +6,6 @@ import os
 API_KEY  = os.getenv("USDA_API_KEY", "nlJizxGoqBWA6ewe6e12eLwGxnFGTq27CkukRbi2")
 BASE_URL = "https://api.nal.usda.gov/fdc/v1"
 
-# ISSUE 2 FIX: disk cache so each food is only fetched once
 CACHE_FILE = "data/usda_cache.json"
 os.makedirs("data", exist_ok=True)
 
