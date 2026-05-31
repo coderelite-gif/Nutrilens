@@ -1,5 +1,7 @@
 # predict.py
 
+import os
+import requests
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -11,6 +13,17 @@ preprocess_input = tf.keras.applications.efficientnet.preprocess_input
 
 MODEL_PATH       = 'efficientnet_b0_101_best.h5'
 CLASS_NAMES_PATH = 'class_names.json'
+MODEL_URL        = "https://huggingface.co/SuperEliteAgent/nutrilens-model/resolve/main/efficientnet_b0_101_best.h5"
+
+# ---- Download model if not present ----
+if not os.path.exists(MODEL_PATH):
+    print("Model not found locally. Downloading from Hugging Face...")
+    r = requests.get(MODEL_URL, stream=True)
+    r.raise_for_status()
+    with open(MODEL_PATH, "wb") as f:
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print("✅ Model downloaded successfully.")
 
 # ---- Load model ----
 def _load():
