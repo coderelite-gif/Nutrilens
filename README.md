@@ -1,7 +1,7 @@
 # 🥗 NutriLens
 ### AI-Powered Food Recognition & Personalised Nutrition Analysis
 
-> Point your camera at any food. Get instant nutrition facts, glycemic index, and personalised health warnings — all tailored to your health condition.
+> Point your camera at any food. Get instant nutrition facts, glycemic index, and personalised health warnings all tailored to your health condition.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
