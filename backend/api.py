@@ -4,18 +4,21 @@ from predict import predict_food
 from nutrition_data import get_warnings, get_safer_alternatives
 import tempfile
 import os
+import re 
 
 app = FastAPI(title="NutriLens AI Backend")
 
 # CORS configuration
+ALLOWED_ORIGINS = [
+    "https://nutrilens-tan-three.vercel.app",
+    os.getenv("FRONTEND_URL", "http://localhost:5173"),
+    "http://localhost:5173",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://nutrilens-tan-three.vercel.app",
-        "https://nutrilens-3ekn3vyvq-coderelite-gifs-projects.vercel.app",
-        os.getenv("FRONTEND_URL", "http://localhost:5173"),
-        "http://localhost:5173",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"https://nutrilens-.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
