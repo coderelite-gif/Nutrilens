@@ -65,6 +65,7 @@ const {calories, protein, carbs, fat, sat_fat, gi, sugar, sodium, glycemicLoad} 
       }
       
       if (calories > 900) {
+        status = 'UNSUITABLE';
         warnings.push("Calorie Excess: Monitor for unwanted fat gain during your bulk.");
       }
       break;
