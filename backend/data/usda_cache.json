@@ -130,5 +130,49 @@
     "gi": 0,
     "source": "USDA FoodData Central",
     "usda_name": "Fish, tuna salad"
+  },
+  "beet salad": {
+    "calories": 43.0,
+    "protein": 1.6,
+    "carbs": 9.6,
+    "fat": 0.2,
+    "fiber": 2.8,
+    "sodium": 78.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Beets, raw"
+  },
+  "red velvet cake": {
+    "calories": 1560.0,
+    "protein": 3.5,
+    "carbs": 64.0,
+    "fat": 11.5,
+    "fiber": 1.0,
+    "sodium": 470,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Cake, snack cakes, creme-filled, sponge"
+  },
+  "beef tartare": {
+    "calories": 1080.0,
+    "protein": 0.0,
+    "carbs": 61.5,
+    "fat": 0.0,
+    "fiber": 0.2,
+    "sodium": 52.0,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Leavening agents, cream of tartar"
+  },
+  "carrot cake": {
+    "calories": 415,
+    "protein": 5.1,
+    "carbs": 79.2,
+    "fat": 9.8,
+    "fiber": 0,
+    "sodium": 567,
+    "gi": 0,
+    "source": "USDA FoodData Central",
+    "usda_name": "Cake, pudding-type, carrot, dry mix"
   }
 }

@@ -1,7 +1,6 @@
 # nutrition_data.py
 # Nutrition data, health profiles, warnings and lookup functions
-
-# ── Per 100g nutrition for original 10 classes + Indian Foods (instant local cache) ──
+# Per 100g nutrition for original 10 classes + Indian Foods (instant local cache) 
 NUTRITION_DB = {
     # Original 10
     "pizza":        {"calories": 266, "protein": 11, "carbs": 33, "fat": 10, "gi": 60},
@@ -36,7 +35,7 @@ NUTRITION_DB = {
     "kheer":                {"calories": 140, "protein": 4, "carbs": 20, "fat": 5, "gi": 55},
 }
 
-# ── Categories for the UI ─────────────────────────────────────────
+# Categories for the UI 
 INDIAN_FOOD_CATEGORIES = {
     "Breads": ["roti", "naan", "paratha"],
     "Rice Dishes": ["biryani", "pulao", "jeera_rice"],
@@ -45,10 +44,10 @@ INDIAN_FOOD_CATEGORIES = {
     "Desserts": ["gulab_jamun", "jalebi", "rasgulla", "kheer"]
 }
 
-# ── GI values for all 101 Food-101 classes ────────────────────────
+# GI values for all 101 Food-101 classes 
 # 0  = negligible/no carbs   |  <55 = Low   |  55-69 = Medium   |  70+ = High
 GI_DB = {
-    # ── Original 10 ──────────────────────────────────────────────
+    # Original 10 
     "pizza":                    60,
     "hamburger":                50,
     "sushi":                    55,
@@ -59,7 +58,7 @@ GI_DB = {
     "samosa":                   55,
     "cup_cakes":                65,
     "caesar_salad":             15,
-    # ── Breads / Pastries ────────────────────────────────────────
+    # Breads / Pastries 
     "waffles":                  76,
     "french_toast":             65,
     "donuts":                   76,
@@ -70,7 +69,7 @@ GI_DB = {
     "bruschetta":               62,
     "garlic_bread":             70,
     "pita_bread":               68,
-    # ── Cakes / Desserts ─────────────────────────────────────────
+    # Cakes / Desserts 
     "cheesecake":               45,
     "chocolate_cake":           65,
     "apple_pie":                65,
@@ -85,7 +84,7 @@ GI_DB = {
     "ice_cream":                57,
     "frozen_yogurt":            50,
     "chocolate_mousse":         45,
-    # ── Pasta / Noodles ──────────────────────────────────────────
+    # Pasta / Noodles 
     "macaroni_and_cheese":      64,
     "spaghetti_bolognese":      45,
     "spaghetti_carbonara":      45,
@@ -110,13 +109,13 @@ GI_DB = {
     "scallops":                  0,
     "sashimi":                   0,
     "mussels":                   0,
-    # ── Rice / Grain dishes ───────────────────────────────────────
+    # Rice / Grain dishes 
     "risotto":                  69,
     "paella":                   55,
     "bibimbap":                 55,
     "chicken_rice":             64,
     "pulled_pork":              25,
-    # ── Meat dishes ───────────────────────────────────────────────
+    # Meat dishes 
     "steak":                     0,
     "filet_mignon":              0,
     "grilled_salmon":            0,
@@ -133,7 +132,7 @@ GI_DB = {
     "escargots":                 5,
     "huevos_rancheros":         45,
     "eggs_benedict":            45,
-    # ── Salads / Vegetables ───────────────────────────────────────
+    # Salads / Vegetables 
     "greek_salad":              10,
     "caprese_salad":            15,
     "seaweed_salad":            20,
@@ -154,15 +153,15 @@ GI_DB = {
     "goulash":                  45,
     "beef_stew":                30,
     "beet_salad":               64,
-    # ── Indian / South Asian ─────────────────────────────────────
+    # Indian / South Asian 
     "butter_chicken":           35,
     "chicken_tikka_masala":     35,
     "breakfast_burrito":        55,
     "tacos":                    50,
-    # ── Pizza / Flatbreads ────────────────────────────────────────
+    # Pizza / Flatbreads 
     "cheese_pizza":             60,
     "breakfast_burrito":        55,
-    # ── Soups ─────────────────────────────────────────────────────
+    # Soups 
     "cup_cakes":                65,
     "hot_and_sour_soup":        35,
     "samosa":                   55,
@@ -179,7 +178,7 @@ GI_DB = {
     "pho":                      50,
 }
 
-# ── Health profiles — daily targets ──────────────────────────────
+# Health profiles — daily targets 
 HEALTH_PROFILES = {
     "Healthy Adult":          {"calories": 2000, "protein": 50,  "carbs": 275, "fat": 78},
     "Type 2 Diabetes":        {"calories": 1800, "protein": 60,  "carbs": 130, "fat": 60},
@@ -192,7 +191,7 @@ HEALTH_PROFILES = {
     "Senior Citizen (60+)":   {"calories": 1600, "protein": 56,  "carbs": 200, "fat": 56},
 }
 
-# ── Warning rules per health profile ─────────────────────────────
+# Warning rules per health profile 
 HEALTH_WARNINGS = {
     "Healthy Adult": {
         "calories": {"limit": 700, "message": "Very high calorie meal — consider a smaller portion"},
@@ -232,7 +231,7 @@ HEALTH_WARNINGS = {
 }
 
 
-# ── Core functions ────────────────────────────────────────────────
+# Core functions 
 
 def get_gi(food_key: str) -> int:
     """
@@ -281,7 +280,7 @@ def get_nutrition_with_fallback(food_name: str, grams: int = 100) -> dict:
         from usda_api import get_nutrition_usda
         usda_result = get_nutrition_usda(food_name, grams)
         if usda_result:
-            usda_result["gi"]     = get_gi(food_name)   # USDA has no GI — use our DB
+            usda_result["gi"]     = get_gi(food_name)  
             usda_result["source"] = "USDA FoodData Central"
             return usda_result
     except Exception as e:
@@ -300,38 +299,79 @@ def get_nutrition_with_fallback(food_name: str, grams: int = 100) -> dict:
     }
 
 
-def get_warnings(food_key: str, nutrition: dict, profile: str) -> list:
-    """
-    Checks the nutrition dict against the user's health profile
-    and returns a list of warning strings.
-    """
+def get_warnings(food_name, nutrition, profile):
     warnings = []
-    if profile not in HEALTH_WARNINGS:
-        return warnings
+    food_name = food_name.lower()
+    
+    # Extract common variables for readability
+    sugar = nutrition.get("sugar", 0)
+    gi = nutrition.get("gi", 0)
+    sodium = nutrition.get("sodium", 0)
+    sat_fat = nutrition.get("saturated_fat", 0)
+    fiber = nutrition.get("fiber", 0)
+    protein = nutrition.get("protein", 0)
 
-    rules = HEALTH_WARNINGS[profile]
-    gi_val = get_gi(food_key)
+    # 1. PROFILE-SPECIFIC LOGIC
+    
+    if profile == "Type 2 Diabetes":
+        # Check for refined carbs and hidden sugars
+        forbidden = ["ice cream", "cake", "candy", "soda", "syrup", "white bread", "juice", "honey"]
+        if any(kw in food_name for kw in forbidden):
+            warnings.append(f"🚩 High Glycemic Load: {food_name.capitalize()} contains refined sugars/carbs discouraged for diabetics.")
+        
+        if gi > 55:
+            warnings.append("Glycemic Warning: This item has a Medium/High GI. Pair with fiber to slow glucose absorption.")
+        if sugar > 10:
+            warnings.append(f"Sugar Alert: {sugar}g of sugar exceeds the recommended per-serving limit for this profile.")
 
-    if "calories" in rules:
-        if nutrition.get("calories", 0) > rules["calories"]["limit"]:
-            warnings.append(rules["calories"]["message"])
-    if "carbs" in rules:
-        if nutrition.get("carbs", 0) > rules["carbs"]["limit"]:
-            warnings.append(rules["carbs"]["message"])
-    if "fat" in rules:
-        if nutrition.get("fat", 0) > rules["fat"]["limit"]:
-            warnings.append(rules["fat"]["message"])
-    if "protein" in rules:
-        is_below = rules["protein"].get("below", False)
-        if is_below and nutrition.get("protein", 0) < rules["protein"]["limit"]:
-            warnings.append(rules["protein"]["message"])
-        elif not is_below and nutrition.get("protein", 0) > rules["protein"]["limit"]:
-            warnings.append(rules["protein"]["message"])
-    if "gi" in rules:
-        if gi_val > rules["gi"]["limit"]:
-            warnings.append(rules["gi"]["message"])
+    elif profile == "Hypertension (High BP)":
+        # Focus on Sodium and Saturated Fats
+        salty_items = ["pizza", "burger", "chips", "pickle", "processed meat", "canned soup", "soy sauce"]
+        if any(kw in food_name for kw in salty_items) or sodium > 350:
+            warnings.append("Sodium Warning: High salt content detected. This can increase blood pressure and water retention.")
+        
+        if sat_fat > 5:
+            warnings.append("Saturated Fat Alert: High intake is linked to arterial stiffness.")
 
+    elif profile == "High Cholesterol":
+        # Focus on Saturated Fat and Lack of Fiber
+        if sat_fat > 4:
+            warnings.append("Lipid Warning: Saturated fats can increase LDL (bad cholesterol) levels.")
+        if "fried" in food_name or "butter" in food_name:
+            warnings.append("Trans-Fat Risk: Fried or buttery foods are highly discouraged for heart health.")
+        if fiber < 2:
+            warnings.append("Fiber Deficiency: Low fiber prevents the natural removal of cholesterol from the body.")
+
+    elif profile == "PCOD / PCOS":
+        # Focus on Insulin Sensitivity (Low GI is key)
+        if gi > 50 or "dairy" in food_name or "milk" in food_name:
+            warnings.append("Hormonal Impact: High GI or heavy dairy may aggravate insulin resistance in PCOS profiles.")
+        if sugar > 8:
+            warnings.append("Inflammation Risk: Refined sugar can trigger androgen spikes.")
+
+    elif profile == "Gym / Muscle Gain":
+        # Focus on Protein Density
+        if protein < 10 and nutrition.get("calories", 0) > 400:
+            warnings.append("Empty Calories: High calorie count with low protein density is suboptimal for lean muscle gain.")
+
+    # 2. GENERAL HEALTH TAGS (Applied to everyone)
+    if "fried" in food_name:
+        warnings.append("Preparation Warning: Deep-frying adds carcinogens and high-calorie density.")
+    
     return warnings
+
+def determine_risk_level(warnings, profile):
+    """
+    Logic to determine the card color: 
+    0-1 warnings = low, 2 = moderate, 3+ or '🚩' = high
+    """
+    if any("🚩" in w or "Violation" in w or "Discouraged" in w for w in warnings):
+        return "high"
+    
+    count = len(warnings)
+    if count == 0: return "low"
+    if count <= 2: return "moderate"
+    return "high"
 
 
 def get_safer_alternatives(food_key: str, profile: str) -> list:

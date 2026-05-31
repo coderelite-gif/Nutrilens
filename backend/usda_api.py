@@ -30,7 +30,6 @@ def search_food_usda(food_name: str) -> dict | None:
     """
     cache_key = food_name.lower().strip()
 
-    # ISSUE 2 FIX: return cached result if available
     if cache_key in _cache:
         return _cache[cache_key]
 
@@ -60,7 +59,6 @@ def search_food_usda(food_name: str) -> dict | None:
             print(f"USDA: No results for '{food_name}'")
             return None
 
-        # Prefer SR Legacy entries — most complete nutritional data
         food = next(
             (f for f in data["foods"] if f.get("dataType") == "SR Legacy"),
             data["foods"][0]
@@ -78,7 +76,7 @@ def search_food_usda(food_name: str) -> dict | None:
             "fat":      round(nutrients.get("Total lipid (fat)", 0), 1),
             "fiber":    round(nutrients.get("Fiber, total dietary", 0), 1),
             "sodium":   round(nutrients.get("Sodium, Na", 0), 1),
-            "gi":       0,       # ISSUE 3 FIX: 0 not None — prevents TypeError in get_warnings()
+            "gi":       0,       
             "source":   "USDA FoodData Central",
             "usda_name": food.get("description", food_name),
         }
