@@ -126,7 +126,7 @@ useEffect(() => {
     };
     setHistory((prevHistory) => {
       const updated = [newEntry, ...prevHistory];
-      localStorage.setItem("nutriscan_logs", JSON.stringify(updated));
+      localStorage.setItem("nutrilens_logs", JSON.stringify(updated));
       return updated;
     });
 
@@ -137,7 +137,7 @@ useEffect(() => {
   const clearLogs = () => {
     if (window.confirm("Are you sure you want to clear all meal logs?")) {
       setHistory([]);
-      localStorage.removeItem("nutriscan_logs");
+      localStorage.removeItem("nutrilens_logs");
     }
   };
 
@@ -168,14 +168,14 @@ useEffect(() => {
     setHistory((prev) => {
       const updated = prev.filter((item) => item.id !== id);
       // Update storage so the deletion persists on refresh
-      localStorage.setItem("nutriscan_logs", JSON.stringify(updated));
+      localStorage.setItem("nutrilens_logs", JSON.stringify(updated));
       return updated;
     });
   };
 
   useEffect(() => {
-    const savedHistory = localStorage.getItem("nutriscan_logs");
-    const savedGoal = localStorage.getItem("nutriscan_goal");
+    const savedHistory = localStorage.getItem("nutrilens_logs");
+    const savedGoal = localStorage.getItem("nutrilens_goal");
     if (savedHistory) setHistory(JSON.parse(savedHistory));
     if (savedGoal) setCustomGoal(Number(savedGoal));
   }, []);
@@ -271,7 +271,7 @@ useEffect(() => {
             <Activity size={24} />
           </div>
           <span className="hidden lg:block font-bold text-xl tracking-tight">
-            NutriScan AI
+            NutriLens AI
           </span>
         </div>
 
@@ -344,7 +344,7 @@ useEffect(() => {
                   value={customGoal}
                   onChange={(e) => {
                     setCustomGoal(e.target.value);
-                    localStorage.setItem("nutriscan_goal", e.target.value);
+                    localStorage.setItem("nutrilens_goal", e.target.value);
                   }}
                   className="bg-slate-50 border-slate-200 w-full p-4 rounded-2xl border font-bold text-xl focus:ring-2 ring-blue-500 outline-none"
                 />
@@ -390,7 +390,7 @@ useEffect(() => {
             <Activity size={20} className="text-white" />
           </div>
           <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-90">
-            NutriScan Coach
+            NutriLens Coach
           </span>
         </div>
 
