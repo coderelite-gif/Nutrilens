@@ -29,37 +29,40 @@ function App() {
   const [customGoal, setCustomGoal] = useState(2000);
 
   // Sync Profile Changes with active data
-  useEffect(() => {
-    if (!data || !data.food_name) return;
+ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-    const reCalculateStatus = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:8000/api/recalculate-status",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              food_name: data.food_name,
-              nutrition: liveNutrition.nutrition,
-              profile: profile,
-            }),
-          },
-        );
-        const result = await response.json();
-        if (result.success) {
-          setData((prev) => ({
-            ...prev,
-            warnings: result.warnings,
-            risk_level: result.risk_level,
-          }));
-        }
-      } catch (err) {
-        console.error("Profile sync error:", err);
+// Sync Profile Changes with active data
+useEffect(() => {
+  if (!data || !data.food_name) return;
+
+  const reCalculateStatus = async () => {
+    try {
+      const response = await fetch(
+        `${API_URL}/api/recalculate-status`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            food_name: data.food_name,
+            nutrition: liveNutrition.nutrition,
+            profile: profile,
+          }),
+        },
+      );
+      const result = await response.json();
+      if (result.success) {
+        setData((prev) => ({
+          ...prev,
+          warnings: result.warnings,
+          risk_level: result.risk_level,
+        }));
       }
-    };
-    reCalculateStatus();
-  }, [profile]);
+    } catch (err) {
+      console.error("Profile sync error:", err);
+    }
+  };
+  reCalculateStatus();
+}, [profile]);
 
   // Live Nutrition Scaling based on Portion Slider
   const liveNutrition = useMemo(() => {
@@ -188,7 +191,7 @@ function App() {
     formData.append("grams", grams);
     formData.append("health_profile", profile);
     try {
-      const response = await fetch("http://localhost:8000/api/analyze-image", {
+      const response = await fetch(`${API_URL}/api/analyze-image`, {
         method: "POST",
         body: formData,
       });
