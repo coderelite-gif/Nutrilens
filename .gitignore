@@ -9,8 +9,8 @@ venv/
 food-101/
 *.zip
 
-# Models (optional)
-*.h5
+# Model
+food_model.h5
 
 # OS files
 .DS_Store
