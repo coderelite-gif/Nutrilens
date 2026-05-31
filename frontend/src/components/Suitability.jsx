@@ -61,7 +61,7 @@ const {calories, protein, carbs, fat, sat_fat, gi, sugar, sodium, glycemicLoad} 
       if (protein < 20 && calories > 500) {
         status = 'CAUTION';
         warnings.push("Low Protein Density: Insufficient for optimal muscle protein synthesis.");
-        lternatives.push("Add 150g Grilled Chicken", "Mix in a scoop of Whey","5 - 6 eggs");
+        alternatives.push("Add 150g Grilled Chicken", "Mix in a scoop of Whey","5 - 6 eggs");
       }
       
       if (calories > 900) {
