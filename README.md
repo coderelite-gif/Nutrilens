@@ -94,7 +94,7 @@ NutriLens  /
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/NutriScan.git
+git clone https://github.com/your-username/NutriLens.git
 cd NutriLens
 ```
 
