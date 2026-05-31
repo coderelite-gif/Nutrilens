@@ -11,6 +11,8 @@ app = FastAPI(title="NutriLens AI Backend")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://nutrilens-tan-three.vercel.app",
+        "https://nutrilens-3ekn3vyvq-coderelite-gifs-projects.vercel.app",
         os.getenv("FRONTEND_URL", "http://localhost:5173"),
         "http://localhost:5173",
     ],
