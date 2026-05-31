@@ -15,3 +15,5 @@ food-101/
 # OS files
 .DS_Store
 Thumbs.db
+
+datatset_grid.py
