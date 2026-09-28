@@ -1,9 +1,10 @@
-
+from dotenv import load_dotenv
 import requests
 import json
 import os
 
-API_KEY  = os.getenv("USDA_API_KEY", "nlJizxGoqBWA6ewe6e12eLwGxnFGTq27CkukRbi2")
+load_dotenv()
+API_KEY = os.getenv("USDA_API_KEY")
 BASE_URL = "https://api.nal.usda.gov/fdc/v1"
 
 CACHE_FILE = "data/usda_cache.json"
@@ -84,7 +85,7 @@ def search_food_usda(food_name: str) -> dict | None:
         # Save to cache
         _cache[cache_key] = result
         _save_cache(_cache)
-        print(f"USDA: ✅ '{food.get('description', food_name)}' cached")
+        print(f"USDA: '{food.get('description', food_name)}' cached")
         return result
 
     except Exception as e:

@@ -17,3 +17,6 @@ food_model.h5
 Thumbs.db
 
 datatset_grid.py
+
+# Environment variables
+.env
