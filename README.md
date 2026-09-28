@@ -16,7 +16,7 @@ NutriLens is a full-stack food intelligence application that combines **deep-lea
 ## 🚀 Quick Links
 
 - 🌐 **Live Demo:** https://nutrilens-tan-three.vercel.app/
-- 🤖 **Trained ML Model (mirror):** https://huggingface.co/SuperEliteAgent/nutrilens-model
+- 🤖 **Trained ML Model:** https://huggingface.co/SuperEliteAgent/nutrilens-model
 
 ---
 
@@ -142,7 +142,7 @@ NutriLens/
 │   ├── usda_api.py                  # USDA FoodData Central API client + cache
 │   ├── schemas.py                   # Pydantic request/response models
 │   ├── class_names.json             # Food-101 class label mapping
-│   ├── efficientnet_b0_101_best.h5  # Trained EfficientNetB0 model (included in repo)
+│   ├── efficientnet_b0_101_best.h5  # Trained EfficientNetB0 model 
 │   └── requirements.txt             # Python dependencies
 │
 ├── frontend/
@@ -165,7 +165,7 @@ NutriLens/
 └── .gitignore
 ```
 
-> **Note:** `backend/.env` is not shown above — it is created locally (see [Environment Variables](#-environment-variables)) and is excluded from the repository via `.gitignore`.
+> **Note:** `backend/.env` is not shown above, it is created locally (see [Environment Variables](#-environment-variables)) and is excluded from the repository via `.gitignore`.
 
 ---
 
@@ -197,7 +197,7 @@ backend/efficientnet_b0_101_best.h5
 
 The model is approximately **38 MB** and is loaded automatically by the backend for food-image inference. No separate download is required when cloning this repository.
 
-A copy of the same trained model is also mirrored on Hugging Face:
+A copy of the same trained model is also uploaded on Hugging Face:
 
 https://huggingface.co/SuperEliteAgent/nutrilens-model
 
@@ -276,8 +276,6 @@ USDA_API_KEY=your_api_key_here
 ```
 
 The key is optional for the core flow: foods in the local nutrition database, including the Indian dishes, work without it. The key is only needed for foods outside the local database, and the app falls back gracefully if it is not set.
-
-Never commit real API keys to GitHub. `backend/.env` is excluded from version control via `.gitignore`.
 
 ---
 
@@ -360,14 +358,6 @@ The project currently reports:
 - **Validation accuracy:** 83.46%
 - **Test accuracy:** 82.57%
 - **CPU inference time:** approximately 45 ms
-
-A per-class accuracy visualisation is included as:
-
-```text
-per_class_accuracy.png
-```
-
----
 
 ## 🔮 Possible Future Improvements
 
